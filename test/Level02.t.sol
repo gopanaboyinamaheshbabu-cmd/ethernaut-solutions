@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.30;
-import {Test} from "forge-std/Test.sol";
-import {Fal1out} from "../src/levels/Fallout.sol";
+import {Test, console} from "forge-std/Test.sol";
+import {Fallout} from "../src/levels/Fallout.sol";
 
 contract Level02Test is Test {
-    Fal1out target;
+    Fallout target;
     address attacker = makeAddr("Attacker");
 
-    function setUP() public {
-        target = new Fal1out();
+    function setUp() public {
+        target = new Fallout();
     }
 
     function testExploit() public {
         vm.startPrank(attacker);
-        target.Fallout();
+        target.Fal1out();
         assertEq(attacker, target.owner());
         vm.stopPrank();
     }
